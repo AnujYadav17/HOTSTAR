@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotstar</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0c111b;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #131a27;
+      padding: 10px 30px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #1f80e0;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .menu a:hover {
+      color: #1f80e0;
+    }
+
+    /* Banner */
+    .banner {
+      background-image: url('./asset/Poster.png');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .banner h1 {
+      background-color: rgba(0,0,0,0.6);
+      padding: 15px 25px;
+      border-radius: 8px;
+    }
+
+    /* Section Titles */
+    h2 {
+      margin: 20px 30px 10px;
+      font-size: 20px;
+    }
+
+    /* Slider rows */
+    .slider {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 0 30px 20px;
+    }
+
+    .slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card {
+      min-width: 200px;
+      height: 120px;
+      background-color: #1c2331;
+      border-radius: 8px;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+
+    /* Buttons for slider */
+    .btn-box {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 0 30px;
+    }
+
+    button {
+      background-color: #1f80e0;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1565c0;
+    }
+    @media (max-width: 480px) {
+      .banner {
+        height: 35vh;
+      }
+      .banner h1 {
+        font-size: 1.2rem;
+        padding: 8px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="nav">
+    <div class="logo">Hotstar</div>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">Movies</a>
+      <a href="#">Shows</a>
+      <a href="#">Sports</a>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner">
+    
+  </div>
+
+  <!-- Trending Section -->
+  <h2>Trending</h2>
+  <div class="btn-box">
+    <button onclick="slideLeft('trend')">◀</button>
+    <button onclick="slideRight('trend')">▶</button>
+  </div>
+  <div class="slider" id="trend">
+    <div class="card"><img src="./asset/T1.png" alt="" height="179" width="300"" alt=""></div>
+    <div class="card"><img src="./asset/T2.png" alt="" height="179" width="300"" alt=""></div>
+    <div class="card"><img src="./asset/T3.png" alt="" height="179" width="300"" alt=""></div>
+    <div class="card"><img src="./asset/T4.png" alt="" height="179" width="300"" alt=""></div>
+  </div>
+
+  <!-- Movies Section -->
+  <h2>Movies</h2>
+  <div class="btn-box">
+    <button onclick="slideLeft('movies')">◀</button>
+    <button onclick="slideRight('movies')">▶</button>
+  </div>
+  <div class="slider" id="movies">
+    <div class="card"><img src="./asset/M1.png" alt="" height="179" width="300"></div>
+    <div class="card"><img src="./asset/M2.png" alt="" height="179" width="300"></div>
+    <div class="card"><img src="./asset/M3.png" alt="" height="179" width="300"></div>
+    <div class="card"><img src="./asset/M4.png" alt="" height="179" width="300"></div>
+  </div>
+
+  <!-- Shows Section -->
+  <h2>Shows</h2>
+  <div class="btn-box">
+    <button onclick="slideLeft('shows')">◀</button>
+    <button onclick="slideRight('shows')">▶</button>
+  </div>
+  <div class="slider" id="shows">
+    <div class="card"><img src="./asset/S1.png" alt="" height="179" width="300" alt=""></div>
+    <div class="card"><img src="./asset/S2.png" alt="" height="179" width="300" alt=""></div>
+    <div class="card"><img src="./asset/S3.png" alt="" height="179" width="300" alt=""></div>
+    <div class="card"><img src="./asset/S4.png" alt="" height="179" width="300" alt=""></div>
+  </div>
+
+  <script>
+    // JS for slider buttons
+    function slideLeft(id) {
+      document.getElementById(id).scrollLeft -= 220;
+    }
+
+    function slideRight(id) {
+      document.getElementById(id).scrollLeft += 220;
+    }
+
+    // Auto sliding every 3 seconds
+    setInterval(() => {
+      slideRight('trend');
+      slideRight('movies');
+      slideRight('shows');
+    }, 3000);
+  </script>
+
+</body>
+</html>
